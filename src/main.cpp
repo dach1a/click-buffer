@@ -23,13 +23,9 @@ class $modify(BufferPlayer, PlayerObject) {
 	// ¿Hay algún orbe tocándose que todavía no se haya activado?
 	bool touchingFreshRing() {
 		if (!m_touchingRings) return false;
-		CCObject* obj;
-		CCARRAY_FOREACH(m_touchingRings, obj) {
-			auto ring = static_cast<GameObject*>(obj);
+		for (auto ring : CCArrayExt<GameObject*>(m_touchingRings)) {
 			if (!ring) continue;
-			bool used = m_isSecondPlayer ? ring->m_hasBeenActivatedP2
-			                             : ring->m_hasBeenActivatedP1;
-			if (!used) return true;
+			if (!ring->hasBeenActivatedByPlayer(this)) return true;
 		}
 		return false;
 	}
