@@ -1,17 +1,30 @@
 {
-	"geode": "$GEODE_VERSION",
+	"geode": "4.6.0",
 	"gd": {
 		"win": "2.2081",
-		"android": "2.2081",
-		"mac": "2.2081",
-		"ios": "2.2081"
+		"android": "2.2081"
 	},
-	"id": "$MOD_ID",
-	"name": "$MOD_NAME",
-	"version": "$MOD_VERSION",
-	"developer": "$MOD_DEVELOPER",
-	"description": "$MOD_DESCRIPTION",
-	"dependencies": {
-		"geode.node-ids": ">=v1.23.3"
+	"version": "v1.0.0",
+	"id": "dach1a.click-buffer",
+	"name": "Click Buffer",
+	"developer": "dach1a",
+	"description": "Guarda tus clicks unos frames antes de tocar un orbe o el suelo y los ejecuta en el frame exacto.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Activado",
+			"default": true
+		},
+		"buffer-frames": {
+			"type": "int",
+			"name": "Ventana del buffer (frames)",
+			"description": "Cuántos frames antes puedes hacer click y que aun así cuente.",
+			"default": 3,
+			"min": 1,
+			"max": 15,
+			"control": {
+				"slider": true
+			}
+		}
 	}
 }
